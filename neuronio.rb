@@ -1,5 +1,7 @@
 class Neuronio
 
+  attr_accessor :sinapses, :valor
+
   def initialize(valor)
     @sinapses = []
     @valor = valor
@@ -18,8 +20,6 @@ class Neuronio
     return true
   end
 
-  private
-
   def treinar(vetor, saida_desejada, gama)
     puts "X: #{vetor.to_s}"
     puts "Y desejado: #{saida_desejada.to_s}"
@@ -34,7 +34,7 @@ class Neuronio
     puts "Y: #{y}"
 
     erro = calcular_erro(y, saida_desejada)
-    puts "Erro: #{erro.to_s}"
+    puts "Erro local: #{erro.to_s}"
 
     delta_sinapses = calcular_delta_sinapses(gama, erro, vetor)
     puts "Delta W: #{delta_sinapses}"
@@ -43,6 +43,8 @@ class Neuronio
     puts ""
     erro
   end
+
+  private
 
   def gerar_sinapses_aleatorias(vetor)
     sinapses = []
