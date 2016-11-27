@@ -76,7 +76,7 @@ class Neuronio
   end
 
   def calcular_erro_medio(erros)
-    erros.map{ |erro| erro * erro }.reduce(:+) / erros.size
+    erros.map{ |erro| erro * erro }.reduce(:+).to_f / erros.size.to_f
   end
 
 end
